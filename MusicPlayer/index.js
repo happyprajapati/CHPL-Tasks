@@ -7,6 +7,7 @@ const audioTrek = document.getElementById('audioTrek')
 const progressBar = document.getElementById('progressBar')
 let playPauseFlag = false
 
+// Audio files
 const fileNames = [
     {
         name: 'Ilahi',
@@ -27,8 +28,8 @@ const fileNames = [
 ]
 let Trek = 0
 
+// Change song function
 const ChangeTrek = (no) => {
-    // console.log(getDuration())
     audio.src = `audio/${fileNames[no].src}`
     name.innerHTML = fileNames[no].name
     PlayPause.innerText = '>'
@@ -36,16 +37,21 @@ const ChangeTrek = (no) => {
     playPauseFlag ? Play() : null
 }
 
+// Play function
 const Play = () =>{
     PlayPause.innerText = '||'
     audio.play()
     playPauseFlag = true
 }
+
+// Pause function
 const Pause = () =>{
     PlayPause.innerText = '>'
     audio.pause()
     playPauseFlag = false
 }
+
+// Handle Play-Pause
 PlayPause.addEventListener('click', ()=>{
     if(PlayPause.innerText == '>'){
         Play()
@@ -53,6 +59,8 @@ PlayPause.addEventListener('click', ()=>{
         Pause()
     }
 })
+
+// Handle song loading
 const handleLoad = ()=>{
     let minutes = Math.floor(audio.duration / 60)
     let seconds = Math.floor(audio.duration % 60)
@@ -60,6 +68,7 @@ const handleLoad = ()=>{
     start.innerHTML = `00:00`
 }
 
+// Handle Time update
 const handleTimeUpdate = (e) => {
     let minutes = Math.floor(e.target.currentTime / 60)
     let seconds = Math.floor(e.target.currentTime % 60)
@@ -69,6 +78,7 @@ const handleTimeUpdate = (e) => {
     progressBar.style.width = `${spendTime}%`
 }
 
+// Handle change song in end of one song
 const handleEnd = () => {
     Next()
     Play()
@@ -77,6 +87,8 @@ const handleEnd = () => {
 audio.addEventListener('loadeddata', () => handleLoad())
 audio.addEventListener('timeupdate', (e) => handleTimeUpdate(e))
 audio.addEventListener('ended', () => handleEnd())
+
+// Handle change of time on click
 audioTrek.addEventListener('click', (c) => {
     let progressBarWidth = audioTrek.clientWidth
     let offsetX = c.offsetX
@@ -85,6 +97,7 @@ audioTrek.addEventListener('click', (c) => {
     audio.currentTime = (offsetX / progressBarWidth) * totalDuration
 })
 
+// Previous function
 const Prev = ()=>{
     if(Trek > 0){
         Trek--
@@ -95,6 +108,7 @@ const Prev = ()=>{
     }
 }
 
+// Next function
 const Next = ()=>{
     if(Trek < fileNames.length-1){
         Trek++
