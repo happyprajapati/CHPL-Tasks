@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="flex">
+    <div class="container flex">
+        <h1>Music Player</h1>
+        <img src="audio.png" height="200px" width="200px"/>
+        <div id="name"></div>
+        <audio id="audio" ></audio>
+        <div id="audioTrek"><div id="progressBar"></div></div>
+        <div class="times">
+            <div id="start">1</div>
+            <div id="end">1</div>
+        </div>
+        <div>
+            <button id="prev" onclick="Prev()">Prev</button>
+            <button id="playPause">></button>
+            <button id="next" onclick="Next()">Next</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

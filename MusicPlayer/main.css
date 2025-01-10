@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+    height: 100vh;
+    background: #444;
+    color: #fff;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container{
+    padding: 15px;
+    background: #222;
+    border-radius: 15px;
+    box-shadow: 2px 8px 8px 2px #111;
+}
+h1{
+    margin: 10px 50px;
+}
+#name{
+    margin: 10px;
+    font-size: 22px;
+}
+button{
+    padding: 8px 12px;
+    margin: 0px 5px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+button:hover{
+    background: #ccc;
+    color: #222;
+}
+#audioTrek{
+    width: 100%;
+    height: 6px;
+    display: relative;
+    background: #444;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#progressBar{
+    display: absolute;
+    width: 0%;
+    height: 100%;
+    background: #111;
+    border-radius: 5px;
+}
+.times{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
