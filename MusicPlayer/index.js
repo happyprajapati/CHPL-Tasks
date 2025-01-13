@@ -78,15 +78,12 @@ const handleTimeUpdate = (e) => {
     progressBar.style.width = `${spendTime}%`
 }
 
-// Handle change song in end of one song
-const handleEnd = () => {
-    Next()
-    Play()
-}
 
 audio.addEventListener('loadeddata', () => handleLoad())
 audio.addEventListener('timeupdate', (e) => handleTimeUpdate(e))
-audio.addEventListener('ended', () => handleEnd())
+
+// Handle change song in end of one song
+audio.addEventListener('ended', () => Next())
 
 // Handle change of time on click
 audioTrek.addEventListener('click', (c) => {

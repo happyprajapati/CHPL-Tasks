@@ -8,8 +8,21 @@
 </head>
 <body class="flex">
     <div class="container flex">
-        <img id="diceImg" src="images/0.png" height="200px" width="200px" />
-        <button id="btn" onclick="genarateAns()">Roll the Dice</button>
+        <h1>Dice Game</h1>
+        <div class="wrapper flex">
+            <div class="player flex">
+                <h2>Player 1</h2>
+                <img id="Py1Img" src="images/0.png" height="200px" width="200px" />
+                <button id="py1" onclick="genarateAns('py1')">Roll the Dice</button>
+            </div>
+            <div class="player flex">
+                <h2>Player 2</h2>
+                <img id="Py2Img" src="images/0.png" height="200px" width="200px" />
+                <button id="py2" onclick="genarateAns('py2')">Roll the Dice</button>
+            </div>
+        </div>
+        <button id="reset" onclick="reset()">Reset</button>
+        <div id="result"></div>
     </div>
     <script src="index.js"></script>
 </body>
