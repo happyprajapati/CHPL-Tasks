@@ -1,0 +1,140 @@
+body{
+    height: 100vh;
+    background: #222;
+    color: #fff;
+    /* position: relative; */
+}
+.flex{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    margin-top: 15px;
+}
+.container{
+    padding: 15px;
+    border-radius: 15px;
+    display: none;
+}
+.wrapper{
+    height: 100%;
+    background: #222;
+    justify-content: center;
+    /* display: none; */
+}
+.inputs{
+    display: inline;
+}
+input{
+    padding: 5px;
+    margin: 5px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #444;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #ccc;
+    width: 80%;
+}
+#submit{
+    margin-top: 20px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background: #ccc;
+    font-weight: bolder;
+}
+#sec1,#sec3{
+    flex-direction: row;
+    gap: 10px;
+}
+#sec2{
+    height: 100%;
+    align-items: end;
+    flex-direction: row;
+    transform: rotateZ(270deg);
+    margin: 135px -174px -519px 575px;
+}
+#sec4{
+    height: 100%;
+    align-items: end;
+    flex-direction: row;
+    transform: rotateZ(90deg);
+    margin: -435px 745px 100px -40px;
+}
+.user{
+    flex-direction: row;
+    gap: 10px;
+}
+#dice-box{
+    height: 50px;
+    width: 50px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.name{
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 160px;
+}
+h2{
+    text-transform: uppercase;
+}
+.rules{
+    flex-direction: row;
+    gap: 25px;
+    margin-top: 40px;
+}
+.vsec{
+    height: 100%;
+    justify-self: space-between;
+}
+.middle{
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+#buy{
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    background: #333;
+    color: #ccc;
+    font-weight: bolder;
+    cursor: pointer;
+}
+#buy:disabled{
+    color: #aaa;
+    background: #333;
+    cursor: no-drop;
+}
+#buy:hover{
+    background: #ccc;
+    color: #222;
+    box-shadow: 2px 3px 5px 0px #888;
+}
+.place{
+    border: 1px solid #fff;
+    height: 120px;
+    border-radius: 10px;
+    justify-content: center;
+}
+img{
+    height: 70px;
+    width: 70px;
+}
+#globle-msg{
+    position: absolute;
+    top: 55%;
+    padding: 15px 30px;
+    font-size: 22px;
+    background: #333;
+    border-radius: 10px;
+    display: none;
+}

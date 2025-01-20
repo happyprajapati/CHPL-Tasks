@@ -21,6 +21,7 @@ const genarateAns = (py) => {
     }
 }
 
+// Flip Dice with images
 const flipDice = (py, score) =>{
     let date = new Date()
     let target = date.getMilliseconds()+1500
@@ -40,6 +41,8 @@ const flipDice = (py, score) =>{
     }, 200);
 }
 
+
+// Print Result
 const printResult = () => {
     let ans = ''
     if(py1Score > py2Score) ans = `Player 1 wins !!`
@@ -48,7 +51,7 @@ const printResult = () => {
     result.innerHTML = ans
 }
 
-
+// Reset Game function
 const reset = () => {
     result.innerHTML = ''
     py1Img.src = `images/0.png`

@@ -1,0 +1,415 @@
+const sec1 = document.getElementById('sec1')
+const sec2 = document.getElementById('sec2')
+const sec3 = document.getElementById('sec3')
+const sec4 = document.getElementById('sec4')
+const currentPosition1 = document.getElementById('currentPosition1')
+const currentPosition2 = document.getElementById('currentPosition2')
+const currentPosition3 = document.getElementById('currentPosition3')
+const currentPosition4 = document.getElementById('currentPosition4')
+const currentBalance1 = document.getElementById('currentBalance1')
+const currentBalance2 = document.getElementById('currentBalance2')
+const currentBalance3 = document.getElementById('currentBalance3')
+const currentBalance4 = document.getElementById('currentBalance4')
+const diceBox = document.getElementById('dice-box')
+const turnMsg = document.getElementById('turn-msg')
+const buy = document.getElementById('buy')
+
+let turn = 1
+
+let player1Money = 15000
+let player2Money = 15000
+let player3Money = 15000
+let player4Money = 15000
+
+let player1Position = 0
+let player2Position = 0
+let player3Position = 0
+let player4Position = 0
+
+let player1CurrentSection = 1
+let player2CurrentSection = 1
+let player3CurrentSection = 1
+let player4CurrentSection = 1
+
+let unperchasedplacesCount = 32
+
+let placeData
+
+const sec1Places = [
+    {
+        path: 'images/start.png',
+    },
+    {
+        name: 'Mumbai',
+        path: 'images/mumbai.png',
+        price: 8000,
+        owner: '',
+        rent: 800
+    },
+    {
+        name: 'chandigadh',
+        path: 'images/chandigadh.png',
+        price: 2900,
+        owner: '',
+        rent: 300
+    },
+    {
+        name: 'Ahmedabad',
+        path: 'images/ahmedabad.png',
+        price: 3500,
+        owner: '',
+        rent: 350
+    },
+    {
+        name: 'Gandhinagar',
+        path: 'images/gandhinagar.png',
+        price: 4000,
+        owner: '',
+        rent: 400
+    },
+    {
+        name: 'Income Tax',
+        path: 'images/income.png',
+        price: 500,
+    },
+    {
+        name: 'Railways',
+        path: 'images/railways.png',
+        price: 9500,
+        owner: '',
+        rent: 950
+    },
+    {
+        name: 'Luck',
+        path: 'images/question.png',
+    },
+    {
+        name: 'Jaipur',
+        path: 'images/jaipur.png',
+        price: 3000,
+        owner: '',
+        rent: 300
+    },
+    {
+        name: 'jail',
+        path: 'images/jail.png',
+        price: 600
+    },
+]
+const sec2Places = [
+    {
+        name: 'Hydrabad',
+        path: 'images/hydrabad.png',
+        price: 3500,
+        owner: '',
+        rent: 350
+    },
+    {
+        name: 'Culcutta',
+        path: 'images/culcutta.png',
+        price: 6500,
+        owner: '',
+        rent: 650
+    },
+    {
+        name: 'Air India',
+        path: 'images/airIndia.png',
+        price: 10500,
+        owner: '',
+        rent: 1500
+    },
+    {
+        name: 'Darjiling',
+        path: 'images/darjiling.png',
+        price: 2500,
+        owner: '',
+        rent: 250
+    },
+    {
+        name: 'Wealth Tax',
+        path: 'images/wealth.png',
+        price: 1000,
+    },
+    {
+        name: 'Patna',
+        path: 'images/patna.png',
+        price: 2000,
+        owner: '',
+        rent: 200
+    },
+    {
+        name: 'Community<br/ >Chest',
+        path: 'images/question.png',
+    },
+    {
+        name: 'Kanpur',
+        path: 'images/kanpur.png',
+        price: 4000,
+        owner: '',
+        rent: 400
+    },
+]
+const sec3Places = [
+    {
+        name: 'Club',
+        path: 'images/club.png',
+        price: 800,
+    },
+    {
+        name: 'Tamil Nadu',
+        path: 'images/tamilNadu.png',
+        price: 6000,
+        owner: '',
+        rent: 600
+    },
+    {
+        name: 'Kochin',
+        path: 'images/kochin.png',
+        price: 2500,
+        owner: '',
+        rent: 250
+    },
+    {
+        name: 'Motor Boat',
+        path: 'images/motorBoat.png',
+        price: 5500,
+        owner: '',
+        rent: 550
+    },
+    {
+        name: 'Goa',
+        path: 'images/goa.png',
+        price: 6500,
+        owner: '',
+        rent: 650
+    },
+    {
+        name: 'Income Tax',
+        path: 'images/income.png',
+        price: 500
+    },
+    {
+        name: 'Banglore',
+        path: 'images/banglore.png',
+        price: 4000,
+        owner: '',
+        rent: 400
+    },
+    {
+        name: 'Luck',
+        path: 'images/question.png',
+    },
+    {
+        name: 'Chennai',
+        path: 'images/chennai.png',
+        price: 7000,
+        owner: '',
+        rent: 700
+    },
+    {
+        name: 'Rest House',
+        path: 'images/rest.png',
+    }
+]
+const sec4Places = [
+    {
+        name: 'Delhi',
+        path: 'images/delhi.png',
+        price: 6000,
+        owner: '',
+        rent: 600
+    },
+    {
+        name: 'Shimla',
+        path: 'images/shimla.png',
+        price: 2200,
+        owner: '',
+        rent: 250
+    },
+    {
+        name: 'Amritsar',
+        path: 'images/amritsar.png',
+        price: 3300,
+        owner: '',
+        rent: 350
+    },
+    {
+        name: 'Agra',
+        path: 'images/agra.png',
+        price: 2500,
+        owner: '',
+        rent: 250
+    },
+    {
+        name: 'Wealth Tax',
+        path: 'images/wealth.png',
+        price: 1000,
+    },
+    {
+        name: 'Bus Service',
+        path: 'images/bus.png',
+        price: 3500,
+        owner: '',
+        rent: 350
+    },
+    {
+        name: 'Community Chest',
+        path: 'images/question.png',
+    },
+    {
+        name: 'Indore',
+        path: 'images/indore.png',
+        price: 1500,
+        owner: '',
+        rent: 150
+    }
+]
+
+const showGame = () => {
+    let section1 = ''
+    let section2 = ''
+    let section3 = ''
+    let section4 = ''
+
+    sec1Places.forEach(place => {
+        section1 += `<div class="flex place">
+                        ${place.name ?? ''}
+                        <img src=${place.path}>
+                        ₹${place.price ?? ''}
+                    </div>`
+    });
+    sec2Places.forEach(place => {
+        section2 += `<div class="flex place">
+                        ${place.name ?? ''}
+                        <img src=${place.path}>
+                        ₹${place.price ?? ''}
+                    </div>`
+    });
+    sec3Places.forEach(place => {
+        section3 += `<div class="flex place">
+                        ${place.name ?? ''}
+                        <img src=${place.path}>
+                        ₹${place.price ?? ''}
+                    </div>`
+    });
+    sec4Places.forEach(place => {
+        section4 += `<div class="flex place">
+                        ${place.name ?? ''}
+                        <img src=${place.path}>
+                        ₹${place.price ?? ''}
+                    </div>`
+    });
+    // console.log(section1)
+    sec1.innerHTML = section1
+    sec2.innerHTML = section2
+    sec3.innerHTML = section3
+    sec4.innerHTML = section4
+
+    currentBalance1.innerHTML = `₹${player1Money}`
+    currentBalance2.innerHTML = `₹${player2Money}`
+    currentBalance3.innerHTML = `₹${player3Money}`
+    currentBalance4.innerHTML = `₹${player4Money}`
+
+    turnMsg.innerText = `Player ${turn} Turn`
+
+    buy.disabled = true
+}
+
+const playerMovement = (score) =>{
+
+    if(turn == 1){
+        
+        let finalScore = score + player1Position
+        player1Position >= 32 ? (player1Position == 32 ? player1Position = 0 : player1Position > 32 ? player1Position = player1Position + score - 32 : null) : player1Position = score
+        if(player1CurrentSection == 1){
+            player1Position > sec1Places.length ? player1CurrentSection++ : (
+                placeData = sec1Places.slice(finalScore, finalScore+1)[0]
+            )
+            currentPosition1.innerHTML = placeData.name
+            if(placeData.name == 'Income Tax') {
+                player1Money -= placeData.price
+                currentBalance1.innerHTML = `₹${player1Money}`
+            }
+            else if(placeData.name == 'Wealth Tax'){
+                player1Money -= placeData.price
+                currentBalance1.innerHTML = `₹${player2Money}`
+            }
+            else if(placeData.name == 'Luck'){
+                player1Money -= placeData.price
+
+                currentBalance2.innerHTML = `₹${player2Money}`
+            }
+            else if(placeData.name == 'Community<br/ >Chest' || placeData.name == 'Community Chest')  player1Money -= placeData.price
+            else{
+                buy.disabled = false
+            }
+            console.log(player1Position)
+        }
+    }
+    else if(turn == 2) {
+        player2Position >= 32 ? (player2Position == 32 ? player2Position = 0 : player2Position > 32 ? player2Position = player2Position + score - 32 : null) : player2Position = score
+        let placeData
+        if(player2CurrentSection == 1){
+            player2Position > sec1Places.length ? player2CurrentSection++ : (
+                placeData = sec1Places.slice(score, score+1)[0]
+            )
+            currentPosition2.innerHTML = placeData.name
+
+        }
+    }
+    else if(turn == 3) {
+        player3Position >= 32 ? (player3Position == 32 ? player3Position = 0 : player3Position > 32 ? player3Position = player3Position + score - 32 : null) : player3Position = score
+        let placeData
+        if(player3CurrentSection == 1){
+            player3Position > sec1Places.length ? player3CurrentSection++ : (
+                placeData = sec1Places.slice(score, score+1)[0]
+            )
+            currentPosition3.innerHTML = placeData.name
+
+        }
+    }
+    else if(turn == 4) {
+        player4Position >= 32 ? (player4Position == 32 ? player4Position = 0 : player4Position > 32 ? player4Position = player4Position + score - 32 : null) : player4Position = score
+        let placeData
+        if(player4CurrentSection == 1){
+            player4Position > sec1Places.length ? player4CurrentSection++ : (
+                placeData = sec1Places.slice(score, score+1)[0]
+            )
+            currentPosition4.innerHTML = placeData.name
+        }
+    }
+
+    turn == 4 ? turn = 1 : turn++
+    
+    turnMsg.innerText = `Player ${turn} Turn`
+
+}
+
+const flipDice = () =>{
+    score = Math.round(Math.random() * 5)
+    let date = new Date()
+    let target = date.getMilliseconds()+1500
+    let currentTime = date.getMilliseconds()
+    let i = 1
+    const rollDice = setInterval(() => {
+        if(currentTime >= target){
+            clearInterval(rollDice)
+            diceBox.src= `images/${score}.png`
+            playerMovement(score)
+        }else{
+            diceBox.src= `images/${i}.png`
+            i < 6 ? i++ : i = 1
+            currentTime += 200
+        }
+    }, 200);
+}
+
+const handleBuy = () => {
+
+}
+
+buy.addEventListener('click', handleBuy)
+
+diceBox.addEventListener('click', flipDice)
+
+window.onload = showGame()

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navo Vyapar Game</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="flex">
+    <div id="form" class="wrapper flex">
+        <div class="flex">
+            <h1>Enter game player names</h1>
+                <input type="text" id="py1" placeholder="Player 1 Name..."/>
+                <input type="text" id="py2" placeholder="Player 2 Name..."/>
+                <input type="text" id="py3" placeholder="Player 3 Name..."/>
+                <input type="text" id="py4" placeholder="Player 4 Name..."/>
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+    <div id="game" class="container">
+        <div class="name flex">
+            <div class="flex">
+                <div id="pl1">Happy Prajapati</div>
+                <div id="currentBalance"></div>
+                <div id="currentPosition"></div>
+            </div>
+            <div id="sec1" class="flex"></div>
+            <div class="flex">
+                <div id="pl2">Happy Prajapati</div>
+                <div id="currentBalance"></div>
+                <div id="currentPosition"></div>
+            </div>
+        </div>
+        <div class="vsec flex">
+            <div id="sec2" class="flex"></div>
+            <div class="flex">
+                <div class="rules flex">
+                    <div>
+                        <h2 class="flex">Luck</h2>
+                        When you arive on the site of chance by<br />odd number(Such as 1, 3, 5) you are<br />entitled toreceive from bank as follows<br /><br />
+                        1. Lottery price ₹2500<br />
+                        3. You have won crossword compitition<br />price of ₹1000<br />
+                        5. You have won Jack pot of ₹2000<br />
+                    </div>
+                    <div>
+                        <h2 class="flex">Community Chest</h2>
+                        When you arive on the site of Community<br />chest by an even number(Such as 2, 4, 6)<br />pay to bank as follows<br /><br />
+                        2. Loss in sher market ₹2000<br />
+                        4. House repairs ₹1500<br />
+                        6. Loss due to fire in godown ₹3000<br />
+                    </div>
+                </div>
+                <div class="middle flex">
+                    <div class="flex">
+                        <p id="turn-msg"></p>
+                        <button id="dice">
+                            <img id="dice-box" src="images/0.png" alt="">
+                        </button>
+                    </div>
+                    <div class="flex">
+                        <button id="buy">Want to Buy</button>
+                    </div>
+                </div>
+                <div class="rules flex">
+                    <div>
+                        <h2 class="flex">Community Chest</h2>
+                        When you arive on the site of Community<br />chest by odd number(Such as 1, 3, 5)<br />pay tobank as follows<br /><br />
+                        1. Go to jail<br />
+                        3. Scholl and Medical fees ₹1000<br />
+                        5. Marriage celebration ₹2000<br />
+                    </div>
+                    <div>
+                        <h2 class="flex">Luck</h2>
+                        When you arive on the site of chance by<br />an even number(Such as 2, 4, 6) you are<br />entitled to receive from bank as follows<br /><br />
+                        2. It's your birthday collect from each<br />player ₹500<br />
+                        4. Income Tax refund ₹2000<br />
+                        6. Sale of stocks collect ₹3000<br />
+                    </div>
+                </div>
+            </div>
+            <div id="sec4" class="flex"></div>
+        </div>
+        <div class="name flex">
+            <div class="flex">
+                <div id="pl3">Happy Prajapati</div>
+                <div id="currentBalance"></div>
+                <div id="currentPosition"></div>
+            </div>
+            <div id="sec3" class="flex"></div>
+            <div class="flex">
+                <div id="pl4">Happy Prajapati</div>
+                <div id="currentBalance"></div>
+                <div id="currentPosition"></div>
+            </div>
+        </div>
+    </div>
+    <div id="globle-msg"></div>
+    <script src="index.js"></script>
+</body>
+</html>

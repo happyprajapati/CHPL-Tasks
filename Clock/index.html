@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>clock</title>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+    <div class="toggle" onclick="themeColor()">
+        <i class="fas "></i>
+    </div>
+    <script>
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        })
+
+        const toggle = document.querySelector('.toggle');
+        function themeColor(){
+            toggle.querySelector('i').classList.toggle('fa-sun');
+            toggle.querySelector('i').classList.toggle('fa-moon');
+            document.body.classList.toggle('dark');
+        }
+        window.addEventListener("load", () => {
+            if(document.body.classList.contains('dark')){
+                toggle.querySelector('i').classList.toggle('fa-sun');
+            }else{
+                toggle.querySelector('i').classList.toggle('fa-moon');
+            }
+        })
+    </script>
+</body>
+</html>
